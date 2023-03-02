@@ -1,4 +1,4 @@
-import './Layout.scss'
+import styles from './Layout.module.scss'
 import { ReactNode } from 'react';
 
 type childrenType = {
@@ -7,7 +7,9 @@ type childrenType = {
 
 const Layout = ({children}: childrenType) => {
     return (
-        <div>{children}</div>
+        <div id={styles.parent}>
+            {children}
+        </div>
     )
 }
 
