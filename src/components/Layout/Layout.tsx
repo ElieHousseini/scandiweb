@@ -1,6 +1,11 @@
 import './Layout.scss'
+import { ReactNode } from 'react';
 
-const Layout = ({children}) => {
+type childrenType = {
+    children: ReactNode
+}
+
+const Layout = ({children}: childrenType) => {
     return (
         <div>{children}</div>
     )
