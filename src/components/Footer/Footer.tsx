@@ -1,6 +1,6 @@
-import './Footer.scss'
+import styles from './Footer.module.scss'
 
-const Footer = () => {
+const Footer = () : JSX.Element => {
     return (
         <div>Footer</div>
     )

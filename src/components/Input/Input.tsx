@@ -1,6 +1,6 @@
-import './input.scss'
+import styles from './Input.module.scss'
 
-const Input = () => {
+const Input = () : JSX.Element => {
     return (
         <div>Input</div>
     )

@@ -1,8 +1,12 @@
-import './Button.scss'
+import styles from './Button.module.scss'
 
-const Button = () => {
+type propsType = {
+    title: string
+}
+
+const Button = ({title}: propsType) : JSX.Element => {
     return (
-        <div>button</div>
+        <button id={styles.button}>{title}</button>
     )
 }
 

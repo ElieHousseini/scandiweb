@@ -1,6 +1,11 @@
+import Header from "../components/Header/ProductAdd/Header"
+import Layout from "../Layout/Layout"
+
 const ProductAdd = () => {
     return(
-        <div>ProductAdd</div>
+        <Layout>
+            <Header/>
+        </Layout>
     )
 }
 

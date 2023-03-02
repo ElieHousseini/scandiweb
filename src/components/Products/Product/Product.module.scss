@@ -1,0 +1,11 @@
+#container{
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // min-width: 15rem;
+    // height: 10rem;
+    #item{
+        background-color: red;
+    }
+}
