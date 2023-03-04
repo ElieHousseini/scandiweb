@@ -14,17 +14,20 @@ const Header = () : JSX.Element => {
     }
 
     return (
-        <div id='Product-list-container'>
-            <div id='parent'>
-                <div id='title'>
-                    <h1>Product List</h1>
-                </div>
-                <div id='btnParent'>
-                <button id='add-product-btn' onClick={handleAddProductBtnClick}>ADD</button>
-                <button id='delete-product-btn' onClick={handleDeleteBtnClick}>MASS DELETE</button>
+        <header>
+            <div id='Product-list-container'>
+                <div id='parent'>
+                    <div id='title'>
+                        <h1>Product List</h1>
+                    </div>
+                    <div id='btnParent'>
+                    <button id='add-product-btn' onClick={handleAddProductBtnClick}>ADD</button>
+                    <button id='delete-product-btn' onClick={handleDeleteBtnClick}>MASS DELETE</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
+
     )
 }
 
