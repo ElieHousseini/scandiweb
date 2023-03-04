@@ -1,11 +1,39 @@
 #container{
-    background-color: blue;
+    height: 10rem;
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    // min-width: 15rem;
-    // height: 10rem;
+    align-items: center; 
+    position: relative;
+    text-align: center;
+    border: 3px solid black;
+    
     #item{
-        background-color: red;
+        p{  
+            padding-top: .1rem;
+            padding-bottom: .1rem;
+        }
+    }
+    input{
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+}
+
+@media screen and (min-width: 768px){
+    @media screen and (orientation: portrait) {
+        #container{
+            flex-basis: 12.5rem;
+        }
+    }
+}
+
+@media screen and (min-width: 992px){
+    @media screen and (orientation: landscape) {
+        #container{
+            flex-basis: 12.5rem;
+            
+        }
     }
 }

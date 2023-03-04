@@ -1,5 +1,16 @@
 #parent{
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    margin-top: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding-top: 2rem;
+}
+
+@media screen and (min-width: 576px){
+    #parent{
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        padding-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh
+    }
 }

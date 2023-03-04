@@ -1,16 +1,27 @@
-import styles from './Header.module.scss'
-import Button from '../../Button/Button'
+import './Header.scss'
+import { useNavigate } from "react-router-dom";
 
 const Header = () : JSX.Element => {
+
+    let navigate = useNavigate(); 
+
+    const handleDeleteBtnClick = () => {
+        
+    }
+
+    const handleAddProductBtnClick = () => {
+        navigate('/addproduct');
+    }
+
     return (
-        <div id={styles.container}>
-            <div id={styles.parent}>
-                <div id={styles.title}>
+        <div id='Product-list-container'>
+            <div id='parent'>
+                <div id='title'>
                     <h1>Product List</h1>
                 </div>
-                <div id={styles.btnParent}>
-                    <Button title='ADD' />
-                    <Button title='MASS DELETE' />
+                <div id='btnParent'>
+                <button id='add-product-btn' onClick={handleAddProductBtnClick}>ADD</button>
+                <button id='delete-product-btn' onClick={handleDeleteBtnClick}>MASS DELETE</button>
                 </div>
             </div>
         </div>
