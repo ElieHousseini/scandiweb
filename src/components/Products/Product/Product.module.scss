@@ -1,3 +1,5 @@
+@import '../../../generalStyling.scss';
+
 #container{
     height: 10rem;
     width: 100%;
@@ -6,22 +8,15 @@
     align-items: center; 
     position: relative;
     text-align: center;
-    border: 3px solid black;
-    
-    #item{
-        p{  
-            padding-top: .1rem;
-            padding-bottom: .1rem;
-        }
-    }
+    border: $border-width solid black;
     input{
         position: absolute;
-        top: 1rem;
-        left: 1rem;
+        top: $spaces-mobile;
+        left: $spaces-mobile;
     }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: $breakpoint-md){
     @media screen and (orientation: portrait) {
         #container{
             flex-basis: 12.5rem;
@@ -29,11 +24,10 @@
     }
 }
 
-@media screen and (min-width: 992px){
+@media screen and (min-width: $breakpoint-lg){
     @media screen and (orientation: landscape) {
         #container{
             flex-basis: 12.5rem;
-            
         }
     }
 }

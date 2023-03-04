@@ -1,5 +1,7 @@
+@import '../../generalStyling.scss';
+
 #container{
-    border-top: 3px solid black;
+    border-top: $border-width solid black;
     height: 4rem;
     display: flex;
     justify-content: center;

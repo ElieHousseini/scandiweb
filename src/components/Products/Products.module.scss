@@ -1,16 +1,18 @@
+@import '../../generalStyling.scss';
+
 #container{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: $spaces-mobile;
+    margin-bottom: $spaces-mobile;
     #parent{
         display: flex;
         flex-wrap: wrap;
-        gap: 1.5rem;
+        gap: $spaces-mobile;
     }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: $breakpoint-md){
     #container{
-        margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
+        margin-top: $spaces-desktop;
+        margin-bottom: $spaces-desktop;
     }
 }

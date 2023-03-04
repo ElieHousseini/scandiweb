@@ -1,14 +1,16 @@
+@import '../generalStyling.scss';
+
 #parent{
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding-top: 2rem;
+    margin-left: $spaces-mobile;
+    margin-right: $spaces-mobile;
+    padding-top: $spaces-mobile;
 }
 
-@media screen and (min-width: 576px){
+@media screen and (min-width: $breakpoint-sm){
     #parent{
-        margin-left: 1.5rem;
-        margin-right: 1.5rem;
-        padding-top: 3rem;
+        margin-left: $spaces-desktop;
+        margin-right: $spaces-desktop;
+        padding-top: $spaces-desktop;
         display: flex;
         flex-direction: column;
         min-height: 100vh
