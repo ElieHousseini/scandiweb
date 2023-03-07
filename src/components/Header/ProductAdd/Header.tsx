@@ -2,6 +2,7 @@ import './Header.scss'
 import { useNavigate } from "react-router-dom";
 import { Context } from '../../../context/context'
 import { useContext } from 'react';
+import postdata from '../../../services/post'
 
 const Header = () : JSX.Element => {
 

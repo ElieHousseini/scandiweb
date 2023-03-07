@@ -31,10 +31,6 @@ const ProductAdd = () => {
         weight: ''
     });
 
-    // const handleSetFormData = (data: FormDataType) : void => {
-    //     setFormData(data)
-    // }
-
     return(
         <Layout>
             <Context.Provider value ={{formData, setFormData}}>
