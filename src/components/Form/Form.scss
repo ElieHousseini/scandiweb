@@ -1,0 +1,16 @@
+@import '../../generalStyling.scss';
+
+label {
+    width: 30%;
+}
+
+#product_form{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+@media screen and (min-width: $breakpoint-md) {
+    #product_form{
+        width: 30rem;
+    }
+}

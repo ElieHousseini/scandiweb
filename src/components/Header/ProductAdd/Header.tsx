@@ -1,12 +1,16 @@
 import './Header.scss'
 import { useNavigate } from "react-router-dom";
+import { Context } from '../../../context/context'
+import { useContext } from 'react';
 
 const Header = () : JSX.Element => {
+
+    const {formData, setFormData} = useContext(Context);
 
     let navigate = useNavigate(); 
 
     const handleSaveBtnClick = () => {
-        
+        // console.log('formData', formData)
     }
 
     const handleCancelBtnClick = () => {

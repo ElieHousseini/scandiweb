@@ -1,7 +1,7 @@
 @import '../../generalStyling.scss';
 
 #container{
-    margin-top: $spaces-mobile;
+    margin-top: $spaces-mobile * 2;
     margin-bottom: $spaces-mobile;
     #parent{
         display: flex;

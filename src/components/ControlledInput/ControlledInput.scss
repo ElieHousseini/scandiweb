@@ -1,0 +1,12 @@
+@import '../../generalStyling.scss';
+
+.controlled_input {
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    input {
+        width: 100%;
+        height: $spaces-mobile * 2;    
+        border: $border-width solid black;
+    }
+}

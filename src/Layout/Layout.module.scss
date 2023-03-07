@@ -4,15 +4,16 @@
     margin-left: $spaces-mobile;
     margin-right: $spaces-mobile;
     padding-top: $spaces-mobile;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh
 }
 
-@media screen and (min-width: $breakpoint-sm){
+@media screen and (min-width: $breakpoint-md){
     #parent{
         margin-left: $spaces-desktop;
         margin-right: $spaces-desktop;
         padding-top: $spaces-desktop;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh
+
     }
 }

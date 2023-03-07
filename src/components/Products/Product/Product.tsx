@@ -16,7 +16,7 @@ const Product = ({sku, name, price, mesurementUnit} : ProductType) => {
                 <p>{price}</p>
                 <p>{mesurementUnit}</p>
             </div>
-            <input type="checkbox" id="myCheckbox"></input>
+            <input type="checkbox" className="delete-checkbox"></input>
         </div>
     )
 }
