@@ -9,7 +9,7 @@ type controlledInputPropsType = {
     onChange:  (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const ControlledInput = ({labelTxt, id, type, name, value, onChange}: controlledInputPropsType) => {
+const ControlledInput = ({labelTxt, id, type, name, value, onChange}: controlledInputPropsType) : JSX.Element => {
     return (
         <div className='controlled_input'>
             <label>

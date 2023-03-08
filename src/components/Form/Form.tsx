@@ -32,9 +32,9 @@ function Form() {
   
   const contextFormData = useContext(Context);
 
-  useEffect(() => {
-    console.log('contextFormData', contextFormData)
-  }, [contextFormData])
+  // useEffect(() => {
+  //   console.log('contextFormData', contextFormData)
+  // }, [contextFormData])
 
 
   useEffect(() => {
@@ -48,6 +48,11 @@ function Form() {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
+    // console.log('event.target.value', event.target.value)
+    // if(name.toLowerCase() == 'sku' && !value.trim()){
+    //   event.target.style.border = '2px solid red';
+    // }
+
     setFormData({ ...formData, [name]: value });
   };
 
@@ -157,7 +162,6 @@ function Form() {
 
           )
         }
-      {/* <button type="submit">Submit</button> */}
     </form>
   );
 }

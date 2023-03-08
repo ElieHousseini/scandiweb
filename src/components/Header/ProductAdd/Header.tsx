@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Context } from '../../../context/context'
 import { useContext } from 'react';
 import postdata from '../../../services/post'
+import ControlledButton from '../../ControlledButton/ControlledButton';
 
 const Header = () : JSX.Element => {
 
@@ -35,17 +36,19 @@ const Header = () : JSX.Element => {
     }
 
     return (
-        <div id='Product-add-container'>
-            <div id='parent'>
-                <div id='title'>
-                    <h1>Add Product</h1>
-                </div>
-                <div id='btnParent'>
-                <button id='save-product-btn' onClick={handleSaveBtnClick}>Save</button>
-                <button id='cancel-product-btn' onClick={handleCancelBtnClick}>Cancel</button>
+        <header>
+            <div id='Product-add-container'>
+                <div id='parent'>
+                    <div id='title'>
+                        <h1>Add Product</h1>
+                    </div>
+                    <div id='btnParent'>
+                        <ControlledButton id='save-product-btn' onClick={handleSaveBtnClick} text='SAVE'/>
+                        <ControlledButton id='cancel-product-btn' onClick={handleCancelBtnClick} text='CANCEL'/>
+                    </div>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 

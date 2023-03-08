@@ -1,15 +1,16 @@
 import './Header.scss'
 import { useNavigate } from "react-router-dom";
+import ControlledButton from '../../ControlledButton/ControlledButton';
 
 const Header = () : JSX.Element => {
 
     let navigate = useNavigate(); 
 
-    const handleDeleteBtnClick = () => {
+    const handleDeleteBtnClick = () : void => {
         
     }
 
-    const handleAddProductBtnClick = () => {
+    const handleAddProductBtnClick = () : void => {
         navigate('/addproduct');
     }
 
@@ -21,8 +22,8 @@ const Header = () : JSX.Element => {
                         <h1>Product List</h1>
                     </div>
                     <div id='btnParent'>
-                    <button id='add-product-btn' onClick={handleAddProductBtnClick}>ADD</button>
-                    <button id='delete-product-btn' onClick={handleDeleteBtnClick}>MASS DELETE</button>
+                        <ControlledButton id='add-product-btn' onClick={handleAddProductBtnClick} text='ADD'/>
+                        <ControlledButton id='delete-product-btn' onClick={handleDeleteBtnClick} text='MASS DELETE' />
                     </div>
                 </div>
             </div>
