@@ -7,10 +7,11 @@ type controlledSwitcherPropsType = {
     dropdownList: string[],
     defaultValue: string,
     name: string,
-    onChange:  (event: React.ChangeEvent<HTMLSelectElement>) => void
+    onChange:  (event: React.ChangeEvent<HTMLSelectElement>) => void,
+    id: string
   }
 
-const ControlledSwitcher = ({labelText, dropdownList, defaultValue, name, onChange}: controlledSwitcherPropsType) => {
+const ControlledSwitcher = ({labelText, dropdownList, defaultValue, name, onChange, id}: controlledSwitcherPropsType) => {
     const [selectedValue, setSelectedValue] = useState(defaultValue || "");
   
     function handleOnChange(e: React.ChangeEvent<HTMLSelectElement>){
@@ -20,9 +21,9 @@ const ControlledSwitcher = ({labelText, dropdownList, defaultValue, name, onChan
   
     return (
         <div id="controlled_switcher">
-            <label htmlFor="productType">{labelText}</label>
+            <label htmlFor={id}>{labelText}</label>
             <select 
-            id="productType" 
+            id={id}
             value={selectedValue} 
             onChange={handleOnChange}
             name={name}

@@ -6,12 +6,28 @@ import postdata from '../../../services/post'
 
 const Header = () : JSX.Element => {
 
-    const {formData, setFormData} = useContext(Context);
+    const {formData} = useContext(Context);
 
     let navigate = useNavigate(); 
 
     const handleSaveBtnClick = () => {
-        // console.log('formData', formData)
+        console.log('formData', formData)
+
+        const areInputValidBasedOnType = (type: string) => {
+            if(type.toLowerCase() === 'dvd'){
+                return formData.size
+            } else if(type.toLowerCase() === 'furniture'){
+                return formData.height && formData.weight && formData.length
+            } else if(type.toLowerCase() === 'book'){
+                return formData.weight
+            }
+        }
+
+        if(!formData.sku || !formData.name || !formData.price || !areInputValidBasedOnType(formData.type)){
+            alert('Please, submit required data')
+        } else {
+            navigate('/')
+        }
     }
 
     const handleCancelBtnClick = () => {
@@ -25,8 +41,8 @@ const Header = () : JSX.Element => {
                     <h1>Add Product</h1>
                 </div>
                 <div id='btnParent'>
-                <button id='add-product-btn' onClick={handleSaveBtnClick}>Save</button>
-                <button id='delete-product-btn' onClick={handleCancelBtnClick}>Cancel</button>
+                <button id='save-product-btn' onClick={handleSaveBtnClick}>Save</button>
+                <button id='cancel-product-btn' onClick={handleCancelBtnClick}>Cancel</button>
                 </div>
             </div>
         </div>

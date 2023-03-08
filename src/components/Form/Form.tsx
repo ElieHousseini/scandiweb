@@ -1,10 +1,9 @@
+import './Form.scss'
 import React, { useState, FormEvent, useEffect } from 'react';
 import ControlledInput from '../ControlledInput/ControlledInput';
 import ControlledSwitcher from '../ControlledSwitcher/ControlledSwitcher';
 import { useContext } from 'react';
 import { Context } from '../../context/context'
-
-import './Form.scss'
 
 type FormDataType = {
   sku: string;
@@ -33,15 +32,15 @@ function Form() {
   
   const contextFormData = useContext(Context);
 
-  // useEffect(() => {
-  //   console.log('contextFormData', contextFormData)
-  // }, [contextFormData])
+  useEffect(() => {
+    console.log('contextFormData', contextFormData)
+  }, [contextFormData])
 
 
   useEffect(() => {
     const typingTimer = setTimeout(() => {  
       contextFormData.setFormData(formData)
-      console.log('User stopped typing');
+      // console.log('User stopped typing');
     }, 500);
     return () => clearTimeout(typingTimer);
   }, [formData]);
@@ -87,20 +86,25 @@ function Form() {
           dropdownList={['DVD', 'Book', 'Furniture']}
           defaultValue='DVD'
           name='type'
+          id="productType"
           onChange={handleInputChange}
         />
         
         {/* DVD */}
         {
           formData.type.toLowerCase() === 'dvd' && (
-          <ControlledInput 
-            labelTxt='Size (MB)'
-            id='size'
-            type='text'
-            name='size'
-            value={formData.size || ""}
-            onChange={handleInputChange}
-          />
+            <>
+              <ControlledInput 
+                labelTxt='Size (MB)'
+                id='size'
+                type='number'
+                name='size'
+                value={formData.size || ""}
+                onChange={handleInputChange}
+              />
+              <div id="description-of-type"><b>Please, provide size</b></div>
+            </>
+
           )
         }
         {/* Furniture */}
@@ -110,7 +114,7 @@ function Form() {
               <ControlledInput 
                 labelTxt='Height (CM)'
                 id='height'
-                type='text'
+                type='number'
                 name='height'
                 value={formData.height || ""}
                 onChange={handleInputChange}
@@ -118,7 +122,7 @@ function Form() {
               <ControlledInput 
                 labelTxt='Weight (CM)'
                 id='width'
-                type='text'
+                type='number'
                 name='width'
                 value={formData.width || ""}
                 onChange={handleInputChange}
@@ -126,11 +130,12 @@ function Form() {
               <ControlledInput 
                 labelTxt='Length (CM)'
                 id='length'
-                type='text'
+                type='number'
                 name='length'
                 value={formData.length || ""}
                 onChange={handleInputChange}
               />
+              <div id="description-of-type"><b>Please, provide dimensions</b></div>
             </>
           )
         }
@@ -138,14 +143,18 @@ function Form() {
         {/* book */}
         {
           formData.type.toLowerCase() === 'book' && (
-            <ControlledInput 
-            labelTxt='Weight (KG)'
-            id='weight'
-            type='text'
-            name='weight'
-            value={formData.weight || ""}
-            onChange={handleInputChange}
-          />
+            <>
+              <ControlledInput 
+              labelTxt='Weight (KG)'
+              id='weight'
+              type='number'
+              name='weight'
+              value={formData.weight || ""}
+              onChange={handleInputChange}
+              />
+              <div id="description-of-type"><b>Please, provide weight</b></div>
+            </>
+
           )
         }
       {/* <button type="submit">Submit</button> */}

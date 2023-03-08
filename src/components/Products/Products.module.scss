@@ -14,5 +14,11 @@
     #container{
         margin-top: $spaces-desktop;
         margin-bottom: $spaces-desktop;
+        #parent{
+            gap: unset;
+            :nth-child(4n) {
+                margin-right: 0%;
+            }
+        }
     }
 }

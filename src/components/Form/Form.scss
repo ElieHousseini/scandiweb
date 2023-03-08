@@ -9,6 +9,11 @@ label {
     margin-top: 1rem;
 }
 
+#description-of-type{
+    text-align: center;
+    margin-top: 1rem;
+}
+
 @media screen and (min-width: $breakpoint-md) {
     #product_form{
         width: 30rem;

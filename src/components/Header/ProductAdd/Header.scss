@@ -20,6 +20,20 @@
                     margin-right: $spaces-mobile;
                 }
             }
+            #save-product-btn{
+                background-color: rgba(173,216,230, 1);
+                color: black;
+                &:hover{
+                    background-color: rgba(173,216,230, .5);
+                }
+            }
+            #cancel-product-btn{
+                background-color: rgba(211,211,211, 1);
+                color: black;
+                &:hover{
+                    background-color: rgba(211,211,211, .5);
+                }
+            }
         }
     }
 }
