@@ -49,13 +49,16 @@ const Form = () : JSX.Element => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) : void => {
     const { name, value } = event.target;
-    // console.log('event.target.value', event.target.value)
-    // if(name.toLowerCase() == 'sku' && !value.trim()){
-    //   event.target.style.border = '2px solid red';
-    // }
 
-    !value.trim() ? event.target.style.border = '2px solid red' : event.target.style.border = '1px solid #4F4F4F'
-    if(name == 'sku'){
+    if(
+      validator.isEmpty(value) ||
+      ((name == 'sku' || name == 'name') && !validator.isAlphanumeric(value)) ||
+      ((name == 'price' || name == 'size' || name == 'height' || name == 'weight' || name == 'length') && !validator.isNumeric(value))
+      ){
+      event.target.style.border = '2px solid red'
+    } 
+    else {
+      event.target.style.border = '1px solid #4F4F4F'
     }
 
     setFormData({ ...formData, [name]: value });
@@ -86,7 +89,7 @@ const Form = () : JSX.Element => {
         <ControlledInput 
           labelTxt='Price($)'
           id='price'
-          type='text'
+          type='number'
           name='price'
           value={formData.price}
           onChange={handleInputChange}
