@@ -4,6 +4,7 @@ import ControlledInput from '../ControlledInput/ControlledInput';
 import ControlledSwitcher from '../ControlledSwitcher/ControlledSwitcher';
 import { useContext } from 'react';
 import { Context } from '../../context/context'
+import validator from 'validator';
 
 type FormDataType = {
   sku: string;
@@ -52,6 +53,10 @@ const Form = () : JSX.Element => {
     // if(name.toLowerCase() == 'sku' && !value.trim()){
     //   event.target.style.border = '2px solid red';
     // }
+
+    !value.trim() ? event.target.style.border = '2px solid red' : event.target.style.border = '1px solid #4F4F4F'
+    if(name == 'sku'){
+    }
 
     setFormData({ ...formData, [name]: value });
   };
