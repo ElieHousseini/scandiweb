@@ -11,7 +11,7 @@ type FormDataType = {
   name: string;
   price: string;
   type: string;
-  size?: string;
+  size: string;
   height?: string;
   width?: string;
   length?: string;
@@ -33,16 +33,11 @@ const Form = () : JSX.Element => {
   
   const contextFormData = useContext(Context);
 
-  // useEffect(() => {
-  //   console.log('contextFormData', contextFormData)
-  // }, [contextFormData])
-
 
   useEffect(() => {
     const typingTimer = setTimeout(() => {  
       contextFormData.setFormData(formData)
-      // console.log('User stopped typing');
-    }, 500);
+    }, 300);
     return () => clearTimeout(typingTimer);
   }, [formData]);
 
@@ -50,17 +45,37 @@ const Form = () : JSX.Element => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) : void => {
     const { name, value } = event.target;
 
+    const VALIDATION_FIELDS = {
+      'alphanumeric' : [
+        'sku',
+        'name'
+      ],
+      'numeric' : [
+        'price',
+
+        // dvd
+        'size',
+        
+        // book
+        'weight',
+
+        // furniture
+        'height',
+        'width',
+        'length',
+      ]
+    }
+
     if(
       validator.isEmpty(value) ||
-      ((name == 'sku' || name == 'name') && !validator.isAlphanumeric(value)) ||
-      ((name == 'price' || name == 'size' || name == 'height' || name == 'weight' || name == 'length') && !validator.isNumeric(value))
+      (VALIDATION_FIELDS['alphanumeric'].includes(name) && !validator.isAlphanumeric(value)) ||
+      (VALIDATION_FIELDS['numeric'].includes(name) && !validator.isNumeric(value))
       ){
       event.target.style.border = '2px solid red'
     } 
     else {
       event.target.style.border = '1px solid #4F4F4F'
     }
-
     setFormData({ ...formData, [name]: value });
   };
 
@@ -133,7 +148,7 @@ const Form = () : JSX.Element => {
                 onChange={handleInputChange}
               />
               <ControlledInput 
-                labelTxt='Weight (CM)'
+                labelTxt='Width (CM)'
                 id='width'
                 type='number'
                 name='width'
@@ -167,7 +182,6 @@ const Form = () : JSX.Element => {
               />
               <div id="description-of-type"><b>Please, provide weight</b></div>
             </>
-
           )
         }
     </form>

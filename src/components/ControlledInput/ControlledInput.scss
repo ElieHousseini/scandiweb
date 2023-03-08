@@ -6,6 +6,9 @@
     align-items: center;
     input {
         width: 100%;
-        height: $spaces-mobile * 2;    
+        height: $spaces-mobile * 2;
+        &:focus{
+            outline: none;
+        }
     }
 }
