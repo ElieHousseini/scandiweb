@@ -21,6 +21,7 @@ const ControlledInput = ({labelTxt, id, type, name, value, onChange}: controlled
             name={name}
             value={value}
             onChange={onChange}
+            min='0'
             />
         </div>
     )

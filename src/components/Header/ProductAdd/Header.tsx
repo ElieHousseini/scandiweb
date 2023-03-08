@@ -17,7 +17,7 @@ const Header = () : JSX.Element => {
         let canSave = true;
         let message = ''
         
-        if(!validator.isAlphanumeric(formData.sku)){
+        if(!validator.isAlphanumeric(formData.sku.replace(/\s/g, ''))){
             const skuDOM = document.querySelector('#sku') as HTMLElement
             if(skuDOM) {
                 skuDOM.style.border = '2px solid red'
@@ -25,7 +25,7 @@ const Header = () : JSX.Element => {
                 validator.isEmpty(formData.sku) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
         }
-        if(!validator.isAlphanumeric(formData.name)){
+        if(!validator.isAlphanumeric(formData.name.replace(/\s/g, ''))){
             const nameDOM = document.querySelector('#name') as HTMLElement
             if(nameDOM) {
                 nameDOM.style.border = '2px solid red'

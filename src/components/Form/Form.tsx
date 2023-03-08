@@ -68,7 +68,7 @@ const Form = () : JSX.Element => {
 
     if(
       validator.isEmpty(value) ||
-      (VALIDATION_FIELDS['alphanumeric'].includes(name) && !validator.isAlphanumeric(value)) ||
+      (VALIDATION_FIELDS['alphanumeric'].includes(name) && !validator.isAlphanumeric(value.replace(/\s/g, ''))) ||
       (VALIDATION_FIELDS['numeric'].includes(name) && !validator.isNumeric(value))
       ){
       event.target.style.border = '2px solid red'
