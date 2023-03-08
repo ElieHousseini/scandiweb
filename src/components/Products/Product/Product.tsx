@@ -12,10 +12,10 @@ const Product = ({sku, name, price, mesurementUnit, type} : ProductType) : JSX.E
     return (
         <div id={styles.container}>
             <div id={styles.item}>
-                <p>{sku} {type.toLowerCase()==='dvd' && 'Disc'}</p>
-                <p>{name}</p>
+                <p>{sku} </p>
+                <p>{name} {type.toLowerCase()==='dvd' && 'Disc'}</p>
                 <p>{price} $</p>
-                <p>{mesurementUnit} {type.toLowerCase() ==='book' && 'KG'}</p>
+                <p>{type.toLowerCase() === 'furniture' && 'Dimensions: '}{type.toLowerCase() === 'book' && 'Weight: '}{type.toLowerCase() === 'dvd' && 'Size: '}{mesurementUnit}{type.toLowerCase() ==='book' && ' KG'}{type.toLowerCase() === 'dvd' && ' MB'}</p>
             </div>
             <input type="checkbox" className="delete-checkbox"></input>
         </div>
