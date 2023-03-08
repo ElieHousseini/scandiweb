@@ -37,7 +37,7 @@ const Form = () : JSX.Element => {
   useEffect(() => {
     const typingTimer = setTimeout(() => {  
       contextFormData.setFormData(formData)
-    }, 300);
+    }, 100);
     return () => clearTimeout(typingTimer);
   }, [formData]);
 
