@@ -10,13 +10,15 @@
     // min-height: -webkit-fill-available;
 }
 
-@media screen and (min-width: $breakpoint-md){
-    #parent{
-        margin-left: $spaces-desktop;
-        margin-right: $spaces-desktop;
-        padding-top: $spaces-desktop;
-        width: 60%;
-        margin: auto;
-
+@media screen and (min-width: $breakpoint-xl){
+    @media screen and (orientation: landscape){
+        #parent{
+            margin-left: $spaces-desktop;
+            margin-right: $spaces-desktop;
+            padding-top: $spaces-desktop;
+            width: 60%;
+            margin: auto;
+    
+        }
     }
 }
