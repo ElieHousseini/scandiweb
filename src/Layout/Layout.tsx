@@ -5,7 +5,7 @@ type childrenType = {
     children: ReactNode
 }
 
-const Layout = ({children}: childrenType) => {
+const Layout = ({children}: childrenType) : JSX.Element => {
     return (
         <div id={styles.parent}>
             {children}

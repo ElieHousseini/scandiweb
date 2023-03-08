@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import ProductList from './pages/ProductList';
 import ProductAdd from './pages/ProductAdd';
 
-function App() {
+const App = () : JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={ <ProductList/> } />

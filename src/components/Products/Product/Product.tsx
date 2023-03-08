@@ -8,7 +8,7 @@ type ProductType = {
     type: string
 }
 
-const Product = ({sku, name, price, mesurementUnit, type} : ProductType) => {
+const Product = ({sku, name, price, mesurementUnit, type} : ProductType) : JSX.Element => {
     return (
         <div id={styles.container}>
             <div id={styles.item}>

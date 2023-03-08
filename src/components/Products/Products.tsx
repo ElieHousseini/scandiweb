@@ -1,7 +1,7 @@
 import Product from './Product/Product'
 import Styles from './Products.module.scss'
 
-const Products = () => {
+const Products = () : JSX.Element => {
     return (
         <main>
             <div id={Styles.container}>
@@ -16,8 +16,6 @@ const Products = () => {
                 </div>
             </div>
         </main>
-
-
     )
 }
 

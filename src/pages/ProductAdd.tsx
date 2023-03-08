@@ -17,7 +17,7 @@ type FormDataType = {
     weight?: string
 }
 
-const ProductAdd = () => {
+const ProductAdd = () : JSX.Element => {
 
     const [formData, setFormData] = useState<FormDataType>({
         sku: '',

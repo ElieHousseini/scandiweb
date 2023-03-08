@@ -3,7 +3,7 @@ import Header from "../components/Header/ProductList/Header"
 import Products from "../components/Products/Products"
 import Layout from "../Layout/Layout"
 
-const ProductList = () => {
+const ProductList = () : JSX.Element => {
     return (
         <Layout>
             <Header />

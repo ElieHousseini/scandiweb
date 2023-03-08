@@ -11,7 +11,7 @@ const Header = () : JSX.Element => {
 
     let navigate = useNavigate(); 
 
-    const handleSaveBtnClick = () => {
+    const handleSaveBtnClick = () : void => {
         console.log('formData', formData)
 
         const areInputValidBasedOnType = (type: string) => {
@@ -31,7 +31,7 @@ const Header = () : JSX.Element => {
         }
     }
 
-    const handleCancelBtnClick = () => {
+    const handleCancelBtnClick = () : void => {
         navigate('/');
     }
 

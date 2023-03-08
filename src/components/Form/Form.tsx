@@ -17,7 +17,7 @@ type FormDataType = {
   weight?: string
 }
 
-function Form() {
+const Form = () : JSX.Element => {
   const [formData, setFormData] = useState<FormDataType>({
     sku: '',
     name: '',
@@ -46,7 +46,7 @@ function Form() {
   }, [formData]);
 
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) : void => {
     const { name, value } = event.target;
     // console.log('event.target.value', event.target.value)
     // if(name.toLowerCase() == 'sku' && !value.trim()){
@@ -56,7 +56,7 @@ function Form() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) : void => {
     event.preventDefault();
   };
 
