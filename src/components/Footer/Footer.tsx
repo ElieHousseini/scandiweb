@@ -4,7 +4,7 @@ const Footer = () : JSX.Element => {
     return (
         <footer>
             <div id={styles.container}>
-                <h3>Scandiweb Test assignment</h3>
+                <h2>Scandiweb Test assignment</h2>
             </div>
         </footer>
 
