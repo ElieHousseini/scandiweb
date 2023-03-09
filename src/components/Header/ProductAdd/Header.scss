@@ -7,6 +7,7 @@
     #parent{
         text-align: center;
         #btnParent{
+            margin-top: 1rem;
             #save-product-btn{
                 background-color: rgba(173,216,230, 1);
                 color: black;
@@ -30,12 +31,14 @@
     #Product-add-container{
         display: flex;
         align-items: center;
-
         #parent{
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
+            #btnParent{
+                margin-top: unset;
+            }
         }
     }
 }

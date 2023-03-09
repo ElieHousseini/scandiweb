@@ -7,6 +7,7 @@
     #parent{
         text-align: center;
         #btnParent{
+            margin-top: 1rem;
             #add-product-btn{
                 background-color: rgba(173,216,230, 1);
                 color: black;
@@ -36,6 +37,9 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
+            #btnParent{
+                margin-top: unset;
+            }
         }
     }
 }
