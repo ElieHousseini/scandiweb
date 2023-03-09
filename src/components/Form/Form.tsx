@@ -71,7 +71,7 @@ const Form = () : JSX.Element => {
     if(
       isEmpty(value) ||
       (VALIDATION_FIELDS['sku'].includes(name) && !isValidSKU(value)) ||
-      (VALIDATION_FIELDS['alphanumeric'].includes(name) && hasTooMuchSpaces(value)) ||
+      (VALIDATION_FIELDS['alphanumeric'].includes(name) && (hasTooMuchSpaces(value) || isEmpty(value))) ||
       (VALIDATION_FIELDS['numeric'].includes(name) && !isNumeric(value))
       ){
       event.target.style.border = '2px solid red'

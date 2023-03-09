@@ -16,65 +16,58 @@ const Header = () : JSX.Element => {
 
         let canSave = true;
         let message = ''
+
+        const colorBorderItem = (selector: string): void => {
+            const itemDOM = document.querySelector(`${selector}`) as HTMLElement
+            if(itemDOM){
+                itemDOM.style.border = '2px solid red'
+            }
+        }
+
+        const editMessage = (text:string): void => {
+            isEmpty(text) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+        }
         
         if(!isValidSKU(formData.sku)){
-            const skuDOM = document.querySelector('#sku') as HTMLElement
-            if(skuDOM) {
-                skuDOM.style.border = '2px solid red'
-                canSave = false
-                isEmpty(formData.sku) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
-            }
+            colorBorderItem('#sku')
+            canSave = false
+            editMessage(formData.sku)
         }
         if(hasTooMuchSpaces(formData.name) || isEmpty(formData.name)){
-            const nameDOM = document.querySelector('#name') as HTMLElement
-            if(nameDOM) {
-                nameDOM.style.border = '2px solid red'
-                canSave = false
-                isEmpty(formData.name) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
-            }
+            colorBorderItem('#name')
+            canSave = false
+            editMessage(formData.name)
         }
         if(!isNumeric(formData.price)){
-            const priceDOM = document.querySelector('#price') as HTMLElement
-            if(priceDOM) {
-                priceDOM.style.border = '2px solid red'
-                canSave = false
-                isEmpty(formData.price) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
-            }
+            colorBorderItem('#price')
+            canSave = false
+            editMessage(formData.price)
         }
         if(formData.type.toLowerCase() === 'dvd' && !isNumeric(formData.size + "")){
-            const dvdDOM = document.querySelector('#size') as HTMLElement
-            if(dvdDOM) {
-                dvdDOM.style.border = '2px solid red'
-                canSave = false
-                isEmpty(formData.size + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
-            }
+            colorBorderItem('#size')
+            canSave = false
+            editMessage(formData.size+"")
         }
         else if(formData.type.toLowerCase() === 'furniture'){
-            const furniteWidthDOM = document.querySelector('#width') as HTMLElement
-            const furniteHeightDOM = document.querySelector('#height') as HTMLElement
-            const furniteLengthDOM = document.querySelector('#length') as HTMLElement
-            if(furniteWidthDOM && (!isNumeric(formData.width + ""))) {
-                furniteWidthDOM.style.border = '2px solid red'
+            if(!isNumeric(formData.width+ "")){
+                colorBorderItem('#width')
                 canSave = false
-                isEmpty(formData.width + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                editMessage(formData.width + "")
             }
-            if(furniteHeightDOM && !isNumeric(formData.height + "")){
-                furniteHeightDOM.style.border = '2px solid red'
+            if(!isNumeric(formData.height + "")){
+                colorBorderItem('#height')
                 canSave = false
-                isEmpty(formData.height + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                editMessage(formData.height+"")
             }
-            if(furniteLengthDOM && (!isNumeric(formData.length + ""))){
-                furniteLengthDOM.style.border = '2px solid red'
+            if(!isNumeric(formData.length + "")){
+                colorBorderItem('#length')
                 canSave = false
-                isEmpty(formData.length + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                editMessage(formData.length + "")
             }
         } else if(formData.type.toLowerCase() === 'book' &&  !isNumeric(formData.weight + "")){
-            const bookDOM = document.querySelector('#weight') as HTMLElement
-            if(bookDOM){
-                bookDOM.style.border = '2px solid red'
+                colorBorderItem('#weight')
                 canSave = false
-                isEmpty(formData.weight + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
-            }
+                editMessage(formData.weight+"")
         }
 
         if(canSave){
