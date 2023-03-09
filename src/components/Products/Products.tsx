@@ -6,11 +6,7 @@ const Products = () : JSX.Element => {
         <main>
             <div id={Styles.container}>
                 <div id={Styles.parent}>
-                    <Product sku='JVC12312' name="Acme" price='123.50' mesurementUnit="24x45x15" type='furniture'/>
-                    <Product sku='JVC12312' name="Acme" price='123.0' mesurementUnit="24x45x15" type='furniture'/>
-                    <Product sku='JVC12312' name="Acme" price='123.50' mesurementUnit="24x45x15" type='furniture'/>
-                    <Product sku='JVC12312' name="Acme" price='123.50' mesurementUnit="24x45x15" type='furniture'/>
-                    <Product sku='JVC12312' name="Acme" price='123.50' mesurementUnit="24x45x15" type='furniture'/>
+                    <Product sku='JVC12312' name="Acme" price='123.50' type='book' size="12" height="12" width="50" length="12" weight="30" />
                 </div>
             </div>
         </main>

@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import postdata from '../../../services/post'
 import ControlledButton from '../../ControlledButton/ControlledButton'
 import validator from 'validator'
-import { isValidSKU, numberToDecimal } from '../../../helpers/syntaxCheck'
+import { isValidSKU, isEmpty, hasTooMuchSpaces } from '../../../helpers/syntaxCheck'
 
 const Header = () : JSX.Element => {
 
@@ -18,20 +18,20 @@ const Header = () : JSX.Element => {
         let canSave = true;
         let message = ''
         
-        if(!isValidSKU(formData.sku.replace(/\s/g, ''))){
+        if(!isValidSKU(formData.sku)){
             const skuDOM = document.querySelector('#sku') as HTMLElement
             if(skuDOM) {
                 skuDOM.style.border = '2px solid red'
                 canSave = false
-                validator.isEmpty(formData.sku) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                isEmpty(formData.sku) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
         }
-        if(!validator.isAlphanumeric(formData.name.replace(/\s/g, ''))){
+        if(hasTooMuchSpaces(formData.name) || isEmpty(formData.name)){
             const nameDOM = document.querySelector('#name') as HTMLElement
             if(nameDOM) {
                 nameDOM.style.border = '2px solid red'
                 canSave = false
-                validator.isEmpty(formData.name) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                isEmpty(formData.name) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
         }
         if(!validator.isNumeric(formData.price)){
@@ -39,7 +39,7 @@ const Header = () : JSX.Element => {
             if(priceDOM) {
                 priceDOM.style.border = '2px solid red'
                 canSave = false
-                validator.isEmpty(formData.price) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                isEmpty(formData.price) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
         }
         if(formData.type.toLowerCase() === 'dvd' && !validator.isNumeric(formData.size + "")){
@@ -47,7 +47,7 @@ const Header = () : JSX.Element => {
             if(dvdDOM) {
                 dvdDOM.style.border = '2px solid red'
                 canSave = false
-                validator.isEmpty(formData.size + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                isEmpty(formData.size + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
         }
         else if(formData.type.toLowerCase() === 'furniture'){
@@ -57,24 +57,24 @@ const Header = () : JSX.Element => {
             if(furniteWidthDOM && (!validator.isNumeric(formData.width + ""))) {
                 furniteWidthDOM.style.border = '2px solid red'
                 canSave = false
-                validator.isEmpty(formData.width + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                isEmpty(formData.width + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
             if(furniteHeightDOM && !validator.isNumeric(formData.height + "")){
                 furniteHeightDOM.style.border = '2px solid red'
                 canSave = false
-                validator.isEmpty(formData.height + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                isEmpty(formData.height + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
             if(furniteLengthDOM && (!validator.isNumeric(formData.length + ""))){
                 furniteLengthDOM.style.border = '2px solid red'
                 canSave = false
-                validator.isEmpty(formData.length + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                isEmpty(formData.length + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
         } else if(formData.type.toLowerCase() === 'book' &&  !validator.isNumeric(formData.weight + "")){
             const bookDOM = document.querySelector('#weight') as HTMLElement
             if(bookDOM){
                 bookDOM.style.border = '2px solid red'
                 canSave = false
-                validator.isEmpty(formData.weight + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
+                isEmpty(formData.weight + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
         }
 
