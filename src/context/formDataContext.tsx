@@ -18,7 +18,7 @@ type AppContextType = {
     setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
 }
 
-export const Context = createContext<AppContextType>({
+export const formDataContext = createContext<AppContextType>({
     formData: {
         sku: '',
         name: '',

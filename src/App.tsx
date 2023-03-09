@@ -8,7 +8,7 @@ const App = () : JSX.Element => {
     <Routes>
       <Route path="/" element={ <ProductList/> } />
       <Route path="/addproduct" element={ <ProductAdd/> } />
-  </Routes>
+    </Routes>
   );
 }
 

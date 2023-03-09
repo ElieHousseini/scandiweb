@@ -3,7 +3,7 @@ import React, { useState, FormEvent, useEffect } from 'react';
 import ControlledInput from '../ControlledInput/ControlledInput';
 import ControlledSwitcher from '../ControlledSwitcher/ControlledSwitcher';
 import { useContext } from 'react';
-import { Context } from '../../context/context'
+import { formDataContext } from '../../context/formDataContext'
 import { isValidSKU, hasTooMuchSpaces, isNumeric, isEmpty } from '../../helpers/syntaxCheck';
 
 type FormDataType = {
@@ -31,12 +31,12 @@ const Form = () : JSX.Element => {
     weight: ''
   });
   
-  const contextFormData = useContext(Context);
+  const contextFormDataContext = useContext(formDataContext);
 
 
   useEffect(() => {
     const typingTimer = setTimeout(() => {  
-      contextFormData.setFormData(formData)
+      contextFormDataContext.setFormData(formData)
     }, 100);
     return () => clearTimeout(typingTimer);
   }, [formData]);
