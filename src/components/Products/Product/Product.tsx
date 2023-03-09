@@ -24,7 +24,7 @@ const Product = ({sku, name, price, type, size, height, width, length, weight } 
         <div id={styles.container}>
             <div id={styles.item}>
                 <p>{sku} </p>
-                <p>{name} {type.toLowerCase()==='dvd' && 'Disc'}</p>
+                <p>{name}</p>
                 <p>{numberToDecimal(price, 2)} $</p>
                 {/* <p>{type.toLowerCase() === 'furniture' && 'Dimensions: '}{type.toLowerCase() === 'book' && 'Weight: '}{type.toLowerCase() === 'dvd' && 'Size: '}{mesurementUnit}{type.toLowerCase() ==='book' && ' KG'}{type.toLowerCase() === 'dvd' && ' MB'}</p> */}
                 <p>
