@@ -32,7 +32,7 @@ const Product = ({sku, name, price, type, size, height, width, length, weight } 
                     {type.toLocaleLowerCase() === 'book' && `Weight: ${weight} KG`}
                 </p>
             </div>
-            <input type="checkbox" className="delete-checkbox" />
+            <input type="checkbox" aria-label={name} className="delete-checkbox" />
         </div>
     )
 }
