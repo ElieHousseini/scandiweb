@@ -15,11 +15,12 @@ type ProductType = {
     width: string,
     length: string,
 
-    weight: string
+    weight: string,
+    onChange:  (event: React.ChangeEvent<HTMLInputElement>) => void
 
 }
 
-const Product = ({sku, name, price, type, size, height, width, length, weight } : ProductType) : JSX.Element => {
+const Product = ({sku, name, price, type, size, height, width, length, weight, onChange } : ProductType) : JSX.Element => {
     return (
         <div id={styles.container}>
             <div id={styles.item}>
@@ -32,7 +33,7 @@ const Product = ({sku, name, price, type, size, height, width, length, weight } 
                     {type.toLocaleLowerCase() === 'book' && `Weight: ${weight} KG`}
                 </p>
             </div>
-            <input type="checkbox" aria-label={name} className="delete-checkbox" />
+            <input onChange={onChange} type="checkbox" aria-label={name} id={"id." + Math.floor(Math.random() * 1000000) + 1} className="delete-checkbox" />
         </div>
     )
 }

@@ -3,7 +3,7 @@ import React, { useState, FormEvent, useEffect } from 'react';
 import ControlledInput from '../ControlledInput/ControlledInput';
 import ControlledSwitcher from '../ControlledSwitcher/ControlledSwitcher';
 import { useContext } from 'react';
-import { formDataContext } from '../../context/formDataContext'
+import FormDataContext from '../../context/formDataContext'
 import { isValidSKU, hasTooMuchSpaces, isNumeric, isEmpty } from '../../helpers/syntaxCheck';
 
 type FormDataType = {
@@ -31,7 +31,7 @@ const Form = () : JSX.Element => {
     weight: ''
   });
   
-  const contextFormDataContext = useContext(formDataContext);
+  const contextFormDataContext = useContext(FormDataContext);
 
 
   useEffect(() => {

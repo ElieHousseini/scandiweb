@@ -3,7 +3,7 @@ import Form from "../components/Form/Form"
 import Header from "../components/Header/ProductAdd/Header"
 import Layout from "../Layout/Layout"
 import {useState} from 'react'
-import { formDataContext } from '../context/formDataContext'
+import FormDataContext from '../context/formDataContext'
 
 type FormDataType = {
     sku: string;
@@ -33,10 +33,10 @@ const ProductAdd = () : JSX.Element => {
 
     return(
         <Layout>
-            <formDataContext.Provider value ={{formData, setFormData}}>
+            <FormDataContext.Provider value ={{formData, setFormData}}>
                 <Header />
                 <Form />
-            </formDataContext.Provider>
+            </FormDataContext.Provider>
             <Footer/>
         </Layout>
     )

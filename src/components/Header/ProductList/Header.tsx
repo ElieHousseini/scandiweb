@@ -1,13 +1,18 @@
 import './Header.scss'
 import { useNavigate } from "react-router-dom";
 import ControlledButton from '../../ControlledButton/ControlledButton';
+import ItemsToDeleteContext from '../../../context/itemsToDeleteContext'
+import { useContext } from 'react';
 
 const Header = () : JSX.Element => {
 
     let navigate = useNavigate(); 
 
+    const { itemsToDelete, setItemsToDelete } = useContext(ItemsToDeleteContext)
+
     const handleDeleteBtnClick = () : void => {
-        
+        console.log('itemsToDelete', itemsToDelete)
+        setItemsToDelete([])
     }
 
     const handleAddProductBtnClick = () : void => {

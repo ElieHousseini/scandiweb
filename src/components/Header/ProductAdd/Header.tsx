@@ -1,6 +1,6 @@
 import './Header.scss'
 import { useNavigate } from "react-router-dom"
-import { formDataContext } from '../../../context/formDataContext'
+import FormDataContext from '../../../context/formDataContext'
 import { useContext } from 'react'
 import postdata from '../../../services/post'
 import ControlledButton from '../../ControlledButton/ControlledButton'
@@ -8,7 +8,7 @@ import { isValidSKU, isEmpty, hasTooMuchSpaces, isNumeric } from '../../../helpe
 
 const Header = () : JSX.Element => {
 
-    const {formData} = useContext(formDataContext);
+    const {formData} = useContext(FormDataContext);
 
     let navigate = useNavigate(); 
 

@@ -18,7 +18,7 @@ type AppContextType = {
     setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
 }
 
-export const formDataContext = createContext<AppContextType>({
+const formDataContext = createContext<AppContextType>({
     formData: {
         sku: '',
         name: '',
@@ -32,3 +32,5 @@ export const formDataContext = createContext<AppContextType>({
     },
     setFormData: () => {},
 });
+
+export default formDataContext
