@@ -4,8 +4,7 @@ import ControlledInput from '../ControlledInput/ControlledInput';
 import ControlledSwitcher from '../ControlledSwitcher/ControlledSwitcher';
 import { useContext } from 'react';
 import { Context } from '../../context/context'
-import validator from 'validator';
-import { isValidSKU, hasTooMuchSpaces } from '../../helpers/syntaxCheck';
+import { isValidSKU, hasTooMuchSpaces, isNumeric, isEmpty } from '../../helpers/syntaxCheck';
 
 type FormDataType = {
   sku: string;
@@ -70,12 +69,12 @@ const Form = () : JSX.Element => {
     }
 
     if(
-      validator.isEmpty(value) ||
+      isEmpty(value) ||
       (VALIDATION_FIELDS['sku'].includes(name) && !isValidSKU(value))
       ||
       (VALIDATION_FIELDS['alphanumeric'].includes(name) && hasTooMuchSpaces(value))
       ||
-      (VALIDATION_FIELDS['numeric'].includes(name) && !validator.isNumeric(value))
+      (VALIDATION_FIELDS['numeric'].includes(name) && !isNumeric(value))
       ){
       event.target.style.border = '2px solid red'
     } 

@@ -4,8 +4,7 @@ import { Context } from '../../../context/context'
 import { useContext } from 'react'
 import postdata from '../../../services/post'
 import ControlledButton from '../../ControlledButton/ControlledButton'
-import validator from 'validator'
-import { isValidSKU, isEmpty, hasTooMuchSpaces } from '../../../helpers/syntaxCheck'
+import { isValidSKU, isEmpty, hasTooMuchSpaces, isNumeric } from '../../../helpers/syntaxCheck'
 
 const Header = () : JSX.Element => {
 
@@ -34,7 +33,7 @@ const Header = () : JSX.Element => {
                 isEmpty(formData.name) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
         }
-        if(!validator.isNumeric(formData.price)){
+        if(!isNumeric(formData.price)){
             const priceDOM = document.querySelector('#price') as HTMLElement
             if(priceDOM) {
                 priceDOM.style.border = '2px solid red'
@@ -42,7 +41,7 @@ const Header = () : JSX.Element => {
                 isEmpty(formData.price) ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
         }
-        if(formData.type.toLowerCase() === 'dvd' && !validator.isNumeric(formData.size + "")){
+        if(formData.type.toLowerCase() === 'dvd' && !isNumeric(formData.size + "")){
             const dvdDOM = document.querySelector('#size') as HTMLElement
             if(dvdDOM) {
                 dvdDOM.style.border = '2px solid red'
@@ -54,22 +53,22 @@ const Header = () : JSX.Element => {
             const furniteWidthDOM = document.querySelector('#width') as HTMLElement
             const furniteHeightDOM = document.querySelector('#height') as HTMLElement
             const furniteLengthDOM = document.querySelector('#length') as HTMLElement
-            if(furniteWidthDOM && (!validator.isNumeric(formData.width + ""))) {
+            if(furniteWidthDOM && (!isNumeric(formData.width + ""))) {
                 furniteWidthDOM.style.border = '2px solid red'
                 canSave = false
                 isEmpty(formData.width + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
-            if(furniteHeightDOM && !validator.isNumeric(formData.height + "")){
+            if(furniteHeightDOM && !isNumeric(formData.height + "")){
                 furniteHeightDOM.style.border = '2px solid red'
                 canSave = false
                 isEmpty(formData.height + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
-            if(furniteLengthDOM && (!validator.isNumeric(formData.length + ""))){
+            if(furniteLengthDOM && (!isNumeric(formData.length + ""))){
                 furniteLengthDOM.style.border = '2px solid red'
                 canSave = false
                 isEmpty(formData.length + "") ? message = 'Please, submit required data' : message = 'Please, provide the data of indicated type'
             }
-        } else if(formData.type.toLowerCase() === 'book' &&  !validator.isNumeric(formData.weight + "")){
+        } else if(formData.type.toLowerCase() === 'book' &&  !isNumeric(formData.weight + "")){
             const bookDOM = document.querySelector('#weight') as HTMLElement
             if(bookDOM){
                 bookDOM.style.border = '2px solid red'

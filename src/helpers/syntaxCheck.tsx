@@ -13,14 +13,24 @@ const numberToDecimal = (number: string, nbAfterComma: number): string => {
     }
 }
 
-function hasTooMuchSpaces(text: string) {
+type hasTooMuchSpacesType = string
+
+const hasTooMuchSpaces = (text: hasTooMuchSpacesType) : boolean => {
   const regex = /^ +|\s{2,}| +$/g;
   return regex.test(text);
 }
 
+type isNumericType = string
 
-const isEmpty = (value: string) : boolean => {
+const isNumeric = (text: isNumericType): boolean => {
+  const regex = /^-?\d+(\.\d+)?$/;
+  return regex.test(text);
+}
+
+type isEmptyType = string
+
+const isEmpty = (value: isEmptyType) : boolean => {
     return value === undefined || value === null || value === "" || /^\s*$/.test(value);
 } 
 
-export {isValidSKU, numberToDecimal, isEmpty, hasTooMuchSpaces}
+export {isValidSKU, numberToDecimal, isEmpty, hasTooMuchSpaces, isNumeric}
