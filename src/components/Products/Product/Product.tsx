@@ -1,9 +1,10 @@
 import styles from './Product.module.scss'
+import { numberToDecimal } from '../../../helpers/syntaxCheck'
 
 type ProductType = {
     sku: string,
     name: string,
-    price: number,
+    price: string,
     mesurementUnit: string,
     type: string
 }
@@ -14,7 +15,7 @@ const Product = ({sku, name, price, mesurementUnit, type} : ProductType) : JSX.E
             <div id={styles.item}>
                 <p>{sku} </p>
                 <p>{name} {type.toLowerCase()==='dvd' && 'Disc'}</p>
-                <p>{price} $</p>
+                <p>{numberToDecimal(price, 2)} $</p>
                 <p>{type.toLowerCase() === 'furniture' && 'Dimensions: '}{type.toLowerCase() === 'book' && 'Weight: '}{type.toLowerCase() === 'dvd' && 'Size: '}{mesurementUnit}{type.toLowerCase() ==='book' && ' KG'}{type.toLowerCase() === 'dvd' && ' MB'}</p>
             </div>
             <input type="checkbox" className="delete-checkbox"></input>

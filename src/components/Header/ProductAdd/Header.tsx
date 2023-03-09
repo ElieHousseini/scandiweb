@@ -5,6 +5,7 @@ import { useContext } from 'react'
 import postdata from '../../../services/post'
 import ControlledButton from '../../ControlledButton/ControlledButton'
 import validator from 'validator'
+import { isValidSKU, numberToDecimal } from '../../../helpers/syntaxCheck'
 
 const Header = () : JSX.Element => {
 
@@ -17,7 +18,7 @@ const Header = () : JSX.Element => {
         let canSave = true;
         let message = ''
         
-        if(!validator.isAlphanumeric(formData.sku.replace(/\s/g, ''))){
+        if(!isValidSKU(formData.sku.replace(/\s/g, ''))){
             const skuDOM = document.querySelector('#sku') as HTMLElement
             if(skuDOM) {
                 skuDOM.style.border = '2px solid red'

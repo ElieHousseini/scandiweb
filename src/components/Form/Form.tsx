@@ -5,6 +5,7 @@ import ControlledSwitcher from '../ControlledSwitcher/ControlledSwitcher';
 import { useContext } from 'react';
 import { Context } from '../../context/context'
 import validator from 'validator';
+import { isValidSKU } from '../../helpers/syntaxCheck';
 
 type FormDataType = {
   sku: string;
@@ -47,7 +48,6 @@ const Form = () : JSX.Element => {
 
     const VALIDATION_FIELDS = {
       'alphanumeric' : [
-        'sku',
         'name'
       ],
       'numeric' : [
@@ -63,12 +63,18 @@ const Form = () : JSX.Element => {
         'height',
         'width',
         'length',
+      ],
+      'sku': [
+        'sku'
       ]
     }
 
     if(
       validator.isEmpty(value) ||
-      (VALIDATION_FIELDS['alphanumeric'].includes(name) && !validator.isAlphanumeric(value.replace(/\s/g, ''))) ||
+      (VALIDATION_FIELDS['sku'].includes(name) && !isValidSKU(value.replace(/\s/g, '')))
+      ||
+      (VALIDATION_FIELDS['alphanumeric'].includes(name) && !validator.isAlphanumeric(value.replace(/\s/g, '')))
+      ||
       (VALIDATION_FIELDS['numeric'].includes(name) && !validator.isNumeric(value))
       ){
       event.target.style.border = '2px solid red'
@@ -76,7 +82,7 @@ const Form = () : JSX.Element => {
     else {
       event.target.style.border = '1px solid #4F4F4F'
     }
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: value.replace(/\s+/g, ' ') });
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) : void => {
